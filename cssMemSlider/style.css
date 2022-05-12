@@ -4,9 +4,15 @@
 }
 
 img {
-    display: none;
+    display: block;
+    opacity: 0.1;
     object-fit: contain;
     height: 100%;
+    position: absolute;
+    transition: 0.9s;
+    transform: translate(0, 100%);
+    /* animation: drop 0.9s ease 0.5s forwards; */
+    /* animation: down 0.5s ease 0.5s backwards; */
 }
 
 p {
@@ -33,6 +39,8 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    /* overflow: hidden; */
 }
 
 .bottom-container {
@@ -72,8 +80,16 @@ label {
 #radio-2:checked~.picture-container>img:nth-child(2),
 #radio-3:checked~.picture-container>img:nth-child(3),
 #radio-4:checked~.picture-container>img:nth-child(4) {
-    display: block;
+    /* transform: translate(0, 0); */
+    /* display: block; */
+    /* opacity: 1; */
+    animation: down ease 1s forwards;
 }
+
+#radio-1:checked~.picture-container>img:not(img:nth-child(1)) {
+    /* animation: down 1s ease 1s forwards; */
+}
+
 
 #radio-1:checked~.bottom-container p:nth-child(1),
 #radio-2:checked~.bottom-container p:nth-child(2),
@@ -82,7 +98,17 @@ label {
     display: block;
 }
 
-.radio-container > label:hover {
+.radio-container>label:hover {
     border-color: green;
     background-color: green;
+}
+
+@keyframes down {
+    0% {
+        transform: translate(-200%, -100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }
