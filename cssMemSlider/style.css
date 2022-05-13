@@ -42,9 +42,9 @@ input[type="radio"] {
 
 .container {
     border: 2px red solid;
-    margin: 10vh auto;
+    margin: 7vh auto;
     width: 70vw;
-    aspect-ratio: 16/9;
+    height: 40vw;
     display: flex;
     flex-direction: column;
     row-gap: 5%;
@@ -63,6 +63,7 @@ input[type="radio"] {
 
 .bottom-container {
     display: flex;
+    height: 20%;
 }
 
 .text {
@@ -74,12 +75,15 @@ input[type="radio"] {
     font-size: 5vw;
     line-height: 100%;
     color: var(--colour-four);
+    text-shadow: 0 0 0.5vw var(--colour-two);
 }
 
 
 .radio-container {
     display: flex;
-    width: 20%;
+    width: 30%;
+    align-items: center;
+    justify-content: end;
 }
 
 label {
@@ -89,10 +93,10 @@ label {
     height: 3vw;
     border-radius: 100%;
     background-color: var(--colour-two);
-    margin: 2%;
+    margin: 3%;
     box-sizing: border-box;
     transition: ease-out 0.2s;
-    box-shadow: 0 0 1vw var(--colour-two);
+    box-shadow: 0 0 0.5vw var(--colour-two);
 }
 
 #radio-1:checked~.picture-container>img:nth-child(1),
@@ -111,11 +115,6 @@ label {
 
 
 }
-
-#radio-1:checked~.picture-container>img:not(img:nth-child(1)) {
-    /* animation: down 1s ease 1s forwards; */
-}
-
 
 #radio-1:checked~.bottom-container p:nth-child(1),
 #radio-2:checked~.bottom-container p:nth-child(2),
@@ -189,5 +188,27 @@ label {
         filter: blur(0);
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px)  {
+
+    .container {
+        width: 95vw;
+        height: 90vw;
+    }
+
+    .bottom-container {
+        flex-direction: column;
+        gap: 10%;
+    }
+
+    .text {
+        order: 2;
+    }
+
+    .radio-container {
+        align-self: center;
+        justify-content: center;
     }
 }
