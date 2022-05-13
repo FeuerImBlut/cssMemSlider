@@ -1,6 +1,17 @@
+:root {
+    --colour-one: #005555;
+    --colour-two: #069A8E;
+    --colour-three: #A1E3D8;
+    --colour-four: #F7FF93;
+}
+
 * {
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-color: var(--colour-one);
 }
 
 img {
@@ -9,10 +20,16 @@ img {
     object-fit: contain;
     height: 100%;
     position: absolute;
-    transition: 0.9s;
-    transform: translate(0, 100%);
-    /* animation: drop 0.9s ease 0.5s forwards; */
-    /* animation: down 0.5s ease 0.5s backwards; */
+    transform-origin: 50% 50%;
+    /* transition: 0.9s; */
+    /* transform: rotate(90deg);
+    transform: translate(-50%, 0%); */
+    animation-name: down;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    animation-iteration-count: 1;
 }
 
 p {
@@ -30,6 +47,7 @@ input[type="radio"] {
     aspect-ratio: 16/9;
     display: flex;
     flex-direction: column;
+    row-gap: 5%;
 }
 
 .picture-container {
@@ -40,7 +58,7 @@ input[type="radio"] {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .bottom-container {
@@ -55,6 +73,7 @@ input[type="radio"] {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
     font-size: 5vw;
     line-height: 100%;
+    color: var(--colour-four);
 }
 
 
@@ -64,16 +83,16 @@ input[type="radio"] {
 }
 
 label {
-    border: 0.5vw solid red;
+    border: 0.5vw solid var(--colour-two);
     display: block;
     width: 3vw;
     height: 3vw;
     border-radius: 100%;
-    /* height: auto; */
-    /* aspect-ratio: 1; */
-    background-color: blue;
+    background-color: var(--colour-two);
     margin: 2%;
     box-sizing: border-box;
+    transition: ease-out 0.2s;
+    box-shadow: 0 0 1vw var(--colour-two);
 }
 
 #radio-1:checked~.picture-container>img:nth-child(1),
@@ -82,8 +101,15 @@ label {
 #radio-4:checked~.picture-container>img:nth-child(4) {
     /* transform: translate(0, 0); */
     /* display: block; */
-    /* opacity: 1; */
-    animation: down ease 1s forwards;
+    opacity: 1;
+    animation-name: up;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+
+
 }
 
 #radio-1:checked~.picture-container>img:not(img:nth-child(1)) {
@@ -96,19 +122,72 @@ label {
 #radio-3:checked~.bottom-container p:nth-child(3),
 #radio-4:checked~.bottom-container p:nth-child(4) {
     display: block;
+    animation-name: blur;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-direction: normal;
+    animation-iteration-count: 1;
 }
 
 .radio-container>label:hover {
-    border-color: green;
-    background-color: green;
+    background-color: transparent;
 }
+
+#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1),
+#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2),
+#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3),
+#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4) {
+    border-color: var(--colour-three);
+    background-color: var(--colour-three);
+}
+
+#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1):hover,
+#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2):hover,
+#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3):hover,
+#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4):hover {
+    /* border-color: var(--colour-three); */
+    background-color: transparent;
+}
+
+
+
 
 @keyframes down {
     0% {
-        transform: translate(-200%, -100%);
-    }
-    100% {
         opacity: 1;
         transform: translate(0, 0);
+
+    }
+
+    100% {
+        /* opacity: 0.3; */
+        transform: translate(200%, 0%) rotate(270deg);
+
+    }
+}
+
+@keyframes up {
+    from {
+        transform: translate(0%, -100%);
+    }
+
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes blur {
+    from {
+        /* transform: translateX(40%); */
+        transform: translateX(20%);
+        filter: blur(10px);
+        opacity: 0.5;
+    }
+
+    to {
+        filter: blur(0);
+        transform: translateX(0);
+        opacity: 1;
     }
 }
