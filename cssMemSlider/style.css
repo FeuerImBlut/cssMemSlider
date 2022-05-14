@@ -21,9 +21,6 @@ img {
     height: 100%;
     position: absolute;
     transform-origin: 50% 50%;
-    /* transition: 0.9s; */
-    /* transform: rotate(90deg);
-    transform: translate(-50%, 0%); */
     animation-name: down;
     animation-duration: 1s;
     animation-timing-function: ease;
@@ -41,7 +38,6 @@ input[type="radio"] {
 }
 
 .container {
-    border: 2px red solid;
     margin: 7vh auto;
     width: 70vw;
     height: 40vw;
@@ -51,7 +47,6 @@ input[type="radio"] {
 }
 
 .picture-container {
-    border: green 2px solid;
     height: 80%;
     width: 100%;
     display: flex;
@@ -72,10 +67,11 @@ input[type="radio"] {
 
 .text>p {
     font-family: Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 5vw;
-    line-height: 100%;
+    font-size: 3vw;
+    line-height: 200%;
     color: var(--colour-four);
     text-shadow: 0 0 0.5vw var(--colour-two);
+
 }
 
 
@@ -87,13 +83,25 @@ input[type="radio"] {
 }
 
 label {
-    border: 0.5vw solid var(--colour-two);
     display: block;
-    width: 3vw;
-    height: 3vw;
+    width: 4vw;
+    height: 4vw;
+    cursor: pointer;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+label > span {
+    border: 0.5vw solid var(--colour-two);
+    width: 70%;
+    height: 70%;
+    display: block;
     border-radius: 100%;
     background-color: var(--colour-two);
-    margin: 3%;
+
     box-sizing: border-box;
     transition: ease-out 0.2s;
     box-shadow: 0 0 0.5vw var(--colour-two);
@@ -129,22 +137,22 @@ label {
     animation-iteration-count: 1;
 }
 
-.radio-container>label:hover {
+.radio-container>label:hover>span {
     background-color: transparent;
 }
 
-#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1),
-#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2),
-#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3),
-#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4) {
+#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1)>span,
+#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2)>span,
+#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3)>span,
+#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4)>span {
     border-color: var(--colour-three);
     background-color: var(--colour-three);
 }
 
-#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1):hover,
-#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2):hover,
-#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3):hover,
-#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4):hover {
+#radio-1:checked~.bottom-container>.radio-container>label:nth-child(1):hover>span,
+#radio-2:checked~.bottom-container>.radio-container>label:nth-child(2):hover>span,
+#radio-3:checked~.bottom-container>.radio-container>label:nth-child(3):hover>span,
+#radio-4:checked~.bottom-container>.radio-container>label:nth-child(4):hover>span {
     /* border-color: var(--colour-three); */
     background-color: transparent;
 }
@@ -205,6 +213,20 @@ label {
 
     .text {
         order: 2;
+    }
+
+    .radio-container {
+        width: auto;
+    }
+
+    label {
+        width: 8vw;
+        height: 8vw;
+    }
+
+    .text > p {
+        font-size: 6vw;
+        line-height: 100%;
     }
 
     .radio-container {
