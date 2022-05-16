@@ -101,7 +101,6 @@ label > span {
     display: block;
     border-radius: 100%;
     background-color: var(--colour-two);
-
     box-sizing: border-box;
     transition: ease-out 0.2s;
     box-shadow: 0 0 0.5vw var(--colour-two);
@@ -111,8 +110,6 @@ label > span {
 #radio-2:checked~.picture-container>img:nth-child(2),
 #radio-3:checked~.picture-container>img:nth-child(3),
 #radio-4:checked~.picture-container>img:nth-child(4) {
-    /* transform: translate(0, 0); */
-    /* display: block; */
     opacity: 1;
     animation-name: up;
     animation-duration: 1s;
@@ -120,8 +117,6 @@ label > span {
     animation-fill-mode: both;
     animation-direction: normal;
     animation-iteration-count: 1;
-
-
 }
 
 #radio-1:checked~.bottom-container p:nth-child(1),
@@ -138,22 +133,22 @@ label > span {
 }
 
 .radio-container>label:hover>span {
-    background-color: transparent;
+    border-color: var(--colour-three);
+    background-color: var(--colour-three);
+
 }
 
 #radio-1:checked~.bottom-container>.radio-container>label:nth-child(1)>span,
 #radio-2:checked~.bottom-container>.radio-container>label:nth-child(2)>span,
 #radio-3:checked~.bottom-container>.radio-container>label:nth-child(3)>span,
 #radio-4:checked~.bottom-container>.radio-container>label:nth-child(4)>span {
-    border-color: var(--colour-three);
-    background-color: var(--colour-three);
+    background-color: transparent;
 }
 
 #radio-1:checked~.bottom-container>.radio-container>label:nth-child(1):hover>span,
 #radio-2:checked~.bottom-container>.radio-container>label:nth-child(2):hover>span,
 #radio-3:checked~.bottom-container>.radio-container>label:nth-child(3):hover>span,
 #radio-4:checked~.bottom-container>.radio-container>label:nth-child(4):hover>span {
-    /* border-color: var(--colour-three); */
     background-color: transparent;
 }
 
@@ -168,9 +163,7 @@ label > span {
     }
 
     100% {
-        /* opacity: 0.3; */
         transform: translate(200%, 0%) rotate(270deg);
-
     }
 }
 
@@ -186,7 +179,6 @@ label > span {
 
 @keyframes blur {
     from {
-        /* transform: translateX(40%); */
         transform: translateX(20%);
         filter: blur(10px);
         opacity: 0.5;
@@ -230,7 +222,6 @@ label > span {
     }
 
     .radio-container {
-        align-self: center;
         justify-content: center;
     }
 }
