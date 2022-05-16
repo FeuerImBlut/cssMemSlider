@@ -15,18 +15,10 @@ body {
 }
 
 img {
-    display: block;
-    opacity: 0.1;
+    display: none;
     object-fit: contain;
     height: 100%;
-    position: absolute;
-    transform-origin: 50% 50%;
-    animation-name: down;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    animation-iteration-count: 1;
+    position: relative;
 }
 
 p {
@@ -52,7 +44,6 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     overflow: hidden;
 }
 
@@ -110,11 +101,11 @@ label > span {
 #radio-2:checked~.picture-container>img:nth-child(2),
 #radio-3:checked~.picture-container>img:nth-child(3),
 #radio-4:checked~.picture-container>img:nth-child(4) {
-    opacity: 1;
+    display: block;
     animation-name: up;
     animation-duration: 1s;
     animation-timing-function: ease;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
     animation-direction: normal;
     animation-iteration-count: 1;
 }
@@ -152,34 +143,21 @@ label > span {
     background-color: transparent;
 }
 
-
-
-
-@keyframes down {
-    0% {
-        opacity: 1;
-        transform: translate(0, 0);
-
-    }
-
-    100% {
-        transform: translate(200%, 0%) rotate(270deg);
-    }
-}
-
 @keyframes up {
     from {
-        transform: translate(0%, -100%);
+        opacity: 0.5;
+        transform: translate(0%, 50%);
     }
 
     to {
+        opacity: 1;
         transform: translate(0, 0);
     }
 }
 
 @keyframes blur {
     from {
-        transform: translateX(20%);
+        transform: translateY(20%);
         filter: blur(10px);
         opacity: 0.5;
     }
