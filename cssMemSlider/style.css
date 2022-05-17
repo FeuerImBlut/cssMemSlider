@@ -129,6 +129,10 @@ label > span {
 
 }
 
+.radio-container>label:active>span {
+    border-color: var(--colour-four);
+}
+
 #radio-1:checked~.bottom-container>.radio-container>label:nth-child(1)>span,
 #radio-2:checked~.bottom-container>.radio-container>label:nth-child(2)>span,
 #radio-3:checked~.bottom-container>.radio-container>label:nth-child(3)>span,
